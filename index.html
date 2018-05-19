@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Graphing Calculator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
 
 </head>
+
 <body class="bg-secondary">
     <nav class="container-fluid navbar navbar-dark bg-dark">
         <a class="navbar-brand" href="#">
-            <img src="Resources/GAJ.png" width="30" height="30" class="d-inline-block align-top" alt="">
-            Calculator
+            <img src="Resources/GAJ.png" width="30" height="30" class="d-inline-block align-top" alt="Uh-oh, the image missing"> Calculator
         </a>
     </nav>
     <div class="container-flex mx-4 my-3">
-            <div class="row">
-                <!--START OFGraph and graph size editors-->
-                <div class="col-8">
-                    <div class="card border-dark">
-                        <!--<img class="card-img-top" src="Resources/GAJ.png" alt="Uh-oh, the image missing">-->
-                        <canvas id="myChart" width="1000px" height="1000px"></canvas>
-                       <!--  <div class="card-body row border-top border-secondary">
+        <div class="row">
+            <!--START OFGraph and graph size editors-->
+            <div class="col-8">
+                <div class="card border-dark">
+                    <canvas id="myChart" width="1000px" height="1000px"></canvas>
+                    <!--  <div class="card-body row border-top border-secondary">
                             
                             <div class="col-2">
                                     <div class="input-group input-group">
@@ -58,76 +59,85 @@
                                 </div>
                             </div>
                         </div> -->
-                    </div>
                 </div>
-                <!--END OF Graph and graph size editors-->
-
-
-                <!--START OF Equation adder-->
-                <div class="col-4 card border-dark" id="eqContainer">
-                    <div class="mb-4"><!--spacer--></div>
-                    <div>
-                        <div class="input-group mb-2">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">&#10003;</span>
-                            </div>
-                            <!--onchange="addEquation()"-->
-                            <input type="text" id="equation" onchange="updateGraph()" class="form-control" placeholder="Equation here" aria-label="Equation here" aria-describedby="Equation here">
-                            <div class="input-group-append">
-                                <button onclick='deleteEquation(this)' class="btn btn-outline-secondary" type="button">&#128465;</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mb-4"><!--spacer--></div>
-                    <div class=" row">
-                            
-                            <div class="col-4">
-                                    <div class="input-group input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" id="inputGroup-sizing-sm">A</span>
-                                        </div>
-                                        <input type="text" id="xMin" onchange="updateGraph()" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-                                    </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="input-group input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="inputGroup-sizing-sm">B</span>
-                                    </div>
-                                    <input type="text" id="xMax" onchange="updateGraph()" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="input-group input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="inputGroup-sizing-sm">N</span>
-                                    </div>
-                                    <input type="text" id="n" onchange="updateGraph()" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-                                </div>
-                            </div>
-
-
-                        </div>
-                        <div class="mb-4"><!--spacer--></div>
-                        <div class="row border-top border-secondary">
-                            <div class="col-12">
-                                <div class="mb-4"><!--spacer--></div>
-                                <div class="input-group input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="inputGroup-sizing-sm">Answer</span>
-                                    </div>
-                                    <span type="text" id="answer" onchange="updateGraph()" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"></span>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-                <!--END OF Equation adder-->
             </div>
+            <!--END OF Graph and graph size editors-->
+
+
+            <!--START OF Equation adder-->
+            <div class="col-4 card border-dark" id="eqContainer">
+                <div class="mb-4">
+                    <!--spacer-->
+                </div>
+                <div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">&#10003;</span>
+                        </div>
+                        <input type="text" id="equation" onchange="updateGraph()" class="form-control" placeholder="Equation here" aria-label="Equation here"
+                            aria-describedby="Equation here">
+                        <div class="input-group-append">
+                            <button onclick='deleteEquation(this)' class="btn btn-outline-secondary" type="button">&#128465;</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <!--spacer-->
+                </div>
+                <div class=" row">
+
+                    <div class="col-4">
+                        <div class="input-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">A</span>
+                            </div>
+                            <input type="text" id="xMin" onchange="updateGraph()" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">B</span>
+                            </div>
+                            <input type="text" id="xMax" onchange="updateGraph()" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="input-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">N</span>
+                            </div>
+                            <input type="text" id="n" onchange="updateGraph()" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="mb-4">
+                    <!--spacer-->
+                </div>
+                <div class="row border-top border-secondary">
+                    <div class="col-12">
+                        <div class="mb-4">
+                            <!--spacer-->
+                        </div>
+                        <div class="input-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">Answer</span>
+                            </div>
+                            <span type="text" id="answer" onchange="updateGraph()" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--END OF Equation adder-->
+        </div>
     </div>
 </body>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js" integrity="sha256-N4u5BjTLNwmGul6RgLoESPNqDFVUibVuOYhP4gJgrew=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js" integrity="sha256-N4u5BjTLNwmGul6RgLoESPNqDFVUibVuOYhP4gJgrew="
+    crossorigin="anonymous"></script>
 <script src="main.js"></script>
 
 </html>

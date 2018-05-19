@@ -83,13 +83,6 @@ function updateGraph() {
                 display: true,
                 text:"This graph dosen't really accurately represent this, so probably best to ignore it..."
             },
-            // scales: {
-            //     yAxes: [{
-            //         ticks: {
-            //             beginAtZero: true
-            //         }
-            //     }]
-            // },
             elements: {
                 line: {
                     fill: false
@@ -106,8 +99,8 @@ function deleteEquation(id){
 function eqParser(eq){
 
     for(i = 0; i < eq.length; i++){
-        if((eq.substring(i, i+3).toLowerCase() === ("sin") || eq.substring(i, i+3).toLowerCase() === ("cos")
-                || eq.substring(i, i+3).toLowerCase() === ("tan"))){
+        if(eq.substring(i, i+3).toLowerCase() === ("sin") || eq.substring(i, i+3).toLowerCase() === ("cos")
+                || eq.substring(i, i+3).toLowerCase() === ("tan") || eq.substring(i, i+3).toLowerCase() === ("log")){
             eq = eq.substring(i-3, i) === ("arc") ? eq.substring(0, i-3) + "Math.a" + eq.substring(i) : eq.substring(0,i) + "Math." + eq.substring(i);
             i+=6;
         }
@@ -143,19 +136,3 @@ function eqParser(eq){
 
     return eq;
 }
-
-// function addEquation(){
-
-//     var equationBox = document.createElement('div');
-//     equationBox.innerHTML = "<div class='input-group mb-2'>\
-//         <div class='input-group-prepend'>\
-//             <span class='input-group-text' id='basic-addon1'>&#10003;</span>\
-//         </div>\
-//         <input type='text' id='equation' onchange='addEquation()'' class='form-control' placeholder='Equation here' aria-label='Equation here' aria-describedby='Equation here'>\
-//         <div class='input-group-append'>\
-//             <button onclick='deleteEquation(this)' class='btn btn-outline-secondary' type='button'>&#128465;</button>\
-//         </div>\
-//     </div>";
-//     document.getElementById("eqContainer").appendChild(equationBox);
-//     updateGraph()
-// }
