@@ -27,10 +27,10 @@ var chart = new Chart(ctx, {
 
 chart.update();
 
-document.getElementById("xMin").value = 0
-document.getElementById("xMax").value = 10
-document.getElementById("n").value = 20
-updateGraph()
+document.getElementById("xMin").value = 0;
+document.getElementById("xMax").value = 10;
+document.getElementById("n").value = 20;
+updateGraph();
 
 function updateGraph() {
     var x;
@@ -43,13 +43,20 @@ function updateGraph() {
     var eq = eqParser(document.getElementById("equation").value);
     var spacer = (xMax - xMin) / n;
 
-    console.log("The equation is: " + eq);
+    console.log("f(x) = " + eq);
 
     for (c = 0; c < n; c++) {
         holdRange.push(c * spacer + xMin);
         x = c * spacer + xMin;
-        holdData.push(eval(eq) * spacer);
-        answer += Math.abs(eval(eq) * spacer);
+
+        try {
+            holdData.push(eval(eq) * spacer);
+            answer += Math.abs(eval(eq) * spacer);
+        }
+        catch {
+            console.log(eq + " is not a valid equation.");
+            c = n;
+        }
     }
 
     document.getElementById("answer").innerText = answer;
