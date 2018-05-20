@@ -42,9 +42,9 @@ function updateGraph() {
     var n = parseInt(document.getElementById("n").value);
     var eq = eqParser(document.getElementById("equation").value);
     var spacer = (xMax - xMin) / n;
-    
+
     console.log("The equation is: " + eq);
-    
+
     for (c = 0; c < n; c++) {
         holdRange.push(c * spacer + xMin);
         x = c * spacer + xMin;
@@ -88,6 +88,12 @@ function deleteEquation(id) {
 }
 
 function eqParser(eq) {
+
+    //Regular expressions are so cool
+    var pattern = /((\d|x)(\(|\w))|(\)(\d|\w))/;
+    while (eq.search(pattern) != -1) {
+        eq = eq.substring(0, eq.search(pattern) + 1) + "*" + eq.substring(eq.search(pattern) + 1);
+    }
 
     for (i = 0; i < eq.length; i++) {
         if (eq.substring(i, i + 3).toLowerCase() === ("sin") || eq.substring(i, i + 3).toLowerCase() === ("cos")
