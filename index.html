@@ -11,92 +11,93 @@
 
 </head>
 
-<body class="bg-secondary">
-    <nav class="container-fluid navbar navbar-dark bg-dark">
-        <a class="navbar-brand" href="https://approxareaundercurve.github.io/">
-            <img src="Resources/GAJ.png" width="30" height="30" class="d-inline-block align-top" alt="Uh-oh, the image missing"> Calculator
-        </a>
-    </nav>
-    <div class="container-flex mx-4 my-3">
-        <div class="row">
-            <!--START OF Graph-->
-            <div class="col-8">
-                <div class="card border-dark">
-                    <canvas id="myChart" width="1000px" height="1000px"></canvas>
+<main>
+    <body class="bg-secondary">
+        <nav class="container-fluid navbar navbar-dark bg-dark">
+            <a class="navbar-brand" href="https://approxareaundercurve.github.io/">
+                <img src="Resources/GAJ.png" width="30" height="30" class="d-inline-block align-top" alt="Uh-oh, the image missing"> Calculator
+            </a>
+        </nav>
+        <div class="container-flex mx-4 my-3">
+            <div class="row">
+                <!--START OF Graph-->
+                <div class="col-8">
+                    <div class="card border-dark">
+                        <canvas id="myChart" width="1000px" height="1000px"></canvas>
+                    </div>
                 </div>
+                <!--END OF Graph-->
+
+
+                <!--START OF Equation Parameters-->
+                <div class="col-4 card border-dark" id="eqContainer">
+                    <div class="mb-4">
+                    </div>
+                    <div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">f(x) = </span>
+                            </div>
+                            <input type="text" id="equation" onchange="updateGraph()" class="form-control" placeholder="Equation here">
+                            <div class="input-group-append">
+                                <button onclick='deleteEquation(this)' class="btn btn-outline-secondary" type="button">&#128465;</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                    </div>
+                    <div class=" row">
+                        <div class="col-4">
+                            <div class="input-group input-group">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text">A</label>
+                                </div>
+                                <input type="text" id="xMin" onchange="updateGraph()" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="input-group input-group">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text">B</label>
+                                </div>
+                                <input type="text" id="xMax" onchange="updateGraph()" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="input-group input-group">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text">N</label>
+                                </div>
+                                <input type="text" id="n" onchange="updateGraph()" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                    </div>
+                    <div class="row border-top border-secondary">
+                        <div class="col-12">
+                            <div class="mb-4">
+                            </div>
+                            <div class="input-group input-group">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text">Answer</label>
+                                </div>
+                                <span type="text" id="answer" onchange="updateGraph()" class="form-control"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--END OF Equation Parameters-->
             </div>
-            <!--END OF Graph-->
-
-
-            <!--START OF Equation Parameters-->
-            <div class="col-4 card border-dark" id="eqContainer">
-                <div class="mb-4">
-                </div>
-                <div>
-                    <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">f(x) = </span>
-                        </div>
-                        <input type="text" id="equation" onchange="updateGraph()" class="form-control" placeholder="Equation here">
-                        <div class="input-group-append">
-                            <button onclick='deleteEquation(this)' class="btn btn-outline-secondary" type="button">&#128465;</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mb-4">
-                </div>
-                <div class=" row">
-                    <div class="col-4">
-                        <div class="input-group input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">A</span>
-                            </div>
-                            <input type="text" id="xMin" onchange="updateGraph()" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="input-group input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">B</span>
-                            </div>
-                            <input type="text" id="xMax" onchange="updateGraph()" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="input-group input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">N</span>
-                            </div>
-                            <input type="text" id="n" onchange="updateGraph()" class="form-control">
-                        </div>
-                    </div>
-                </div>
-                <div class="mb-4">
-                </div>
-                <div class="row border-top border-secondary">
-                    <div class="col-12">
-                        <div class="mb-4">
-                            <!--spacer-->
-                        </div>
-                        <div class="input-group input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Answer</span>
-                            </div>
-                            <span type="text" id="answer" onchange="updateGraph()" class="form-control"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--END OF Equation Parameters-->
         </div>
-    </div>
-    <nav class="container-fluid navbar navbar-dark bg-dark">
-        <a class="col-12 navbar-brand" align="center" href="https://github.com/RogerTheRabbit" target="_blank" rel="noopener">
-            <span>Made by Kevin 2018</span>
-        </a>
-    </nav>
-</body>
+        <nav class="container-fluid navbar navbar-dark bg-dark">
+            <a class="col-12 navbar-brand" align="center" href="https://github.com/RogerTheRabbit" target="_blank" rel="noopener">
+                <span>Made by Kevin 2018</span>
+            </a>
+        </nav>
+    </body>
+</main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js" integrity="sha256-N4u5BjTLNwmGul6RgLoESPNqDFVUibVuOYhP4gJgrew="
     crossorigin="anonymous"></script>
