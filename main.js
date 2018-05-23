@@ -97,7 +97,7 @@ function deleteEquation(id) {
 function eqParser(eq) {
 
     //Regular expressions are so cool
-    var pattern = /((\d|x)(\(|\w))|(\)(\d|\w))/;
+    var pattern = /([x\d][\w\(])|(\)[\d\w])/;
     while (eq.search(pattern) != -1) {
         eq = eq.substring(0, eq.search(pattern) + 1) + "*" + eq.substring(eq.search(pattern) + 1);
     }
