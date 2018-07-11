@@ -53,7 +53,7 @@ function updateGraph() {
             holdData.push(eval(eq) * spacer);
             answer += Math.abs(eval(eq) * spacer);
         }
-        catch {
+        catch(error) {
             console.log(eq + " is not a valid equation.");
             c = n;
         }
@@ -97,7 +97,7 @@ function deleteEquation(id) {
 function eqParser(eq) {
 
     //Regular expressions are so cool
-    var pattern = /([x\d][x\(])|(\)[\w])/;
+    var pattern = /([x\d][x\(stc])|(\)[\w])/;
     while (eq.search(pattern) != -1) {
         eq = eq.substring(0, eq.search(pattern) + 1) + "*" + eq.substring(eq.search(pattern) + 1);
     }
